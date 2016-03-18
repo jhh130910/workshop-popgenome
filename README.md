@@ -34,8 +34,12 @@ Fasta Files
 Reading Fasta Files
 -------------------
 
-\# Reading data, read fasta from folder GENOME.class \<-
-readData("fasta") get.sum.data(GENOME.class)
+```R
+# Reading data, read fasta from folder 
+GENOME.class <- readData("fasta") 
+get.sum.data(GENOME.class)
+```
+
 
 What statistics can one obtain from get.sum.data function?
 
@@ -52,10 +56,14 @@ beforehand. For this modules have to be run. Note that module **Fst**
 has to be executed with **F\_st**. The statistic Tajima’s D is part of
 the module **neutrality** not **Fst**
 
-\# Available statistics and examples show.slots(GENOME.class) \# Run
+```R
+# Available statistics and examples 
+show.slots(GENOME.class) 
+# Run
 necessary module GENOME.class \<- F~S~T.stats(GENOME.class) GENOME.class
 \<- neutrality.stats(GENOME.class) GENOME.class@n.sites GENOME.class@Pi
 GENOME.class@TajimaD
+```
 
 What different modules are available? (show.slots)
 
