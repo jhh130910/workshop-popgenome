@@ -67,8 +67,9 @@ starting to work on them.</p>
 <h2>
 <a id="reading-fasta-files" class="anchor" href="#reading-fasta-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reading Fasta Files</h2>
 
-<p># Reading data, read fasta from folder GENOME.class &lt;-
-readData("fasta") get.sum.data(GENOME.class)</p>
+<div class="highlight highlight-source-r"><pre><span class="pl-c"># Reading data, read fasta from folder </span>
+<span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span> readData(<span class="pl-s"><span class="pl-pds">"</span>fasta<span class="pl-pds">"</span></span>) 
+get.sum.data(<span class="pl-smi">GENOME.class</span>)</pre></div>
 
 <p>What statistics can one obtain from get.sum.data function?</p>
 
@@ -85,10 +86,12 @@ beforehand. For this modules have to be run. Note that module <strong>Fst</stron
 has to be executed with <strong>F_st</strong>. The statistic Tajima’s D is part of
 the module <strong>neutrality</strong> not <strong>Fst</strong></p>
 
-<p># Available statistics and examples show.slots(GENOME.class) # Run
-necessary module GENOME.class &lt;- F~S~T.stats(GENOME.class) GENOME.class
-&lt;- neutrality.stats(GENOME.class) <a href="mailto:GENOME.class@n.sites">GENOME.class@n.sites</a> GENOME.class@Pi
-GENOME.class@TajimaD</p>
+<div class="highlight highlight-source-r"><pre><span class="pl-c"># Available statistics and examples </span>
+show.slots(<span class="pl-smi">GENOME.class</span>) 
+<span class="pl-c"># Run</span>
+<span class="pl-smi">necessary</span> <span class="pl-smi">module</span> <span class="pl-smi">GENOME.class</span> \<span class="pl-k">&lt;-</span> <span class="pl-c1">F</span><span class="pl-k">~</span><span class="pl-smi">S</span><span class="pl-k">~</span><span class="pl-c1">T</span>.stats(<span class="pl-smi">GENOME.class</span>) <span class="pl-smi">GENOME.class</span>
+\<span class="pl-k">&lt;-</span> neutrality.stats(<span class="pl-smi">GENOME.class</span>) <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">n.sites</span> <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">Pi</span>
+<span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">TajimaD</span></pre></div>
 
 <p>What different modules are available? (show.slots)</p>
 
