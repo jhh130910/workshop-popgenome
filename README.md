@@ -5,6 +5,15 @@ PDFs:
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome.pdf>
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/Whole_genome_analyses_using_VCF_files.pdf>
 
+Preparation
+```
+mkdir PopGenome
+cd PopGenome
+cp /usr/local/extras/Genomics/workshops/March2016/PopGenome/PopGenome_data.zip ./
+unzip PopGenome_data.zip
+rm PopGenome_data.zip
+```
+
 Introduction
 ============
 
