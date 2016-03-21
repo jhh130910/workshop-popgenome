@@ -48,9 +48,7 @@ get.individuals(GENOME.class)
 
 1. What statistics can one obtain from get.sum.data function?
 
-Folders **fasta\_a**, **fasta\_b**, **fasta\_c** contain modified
-alignments. Identify the differences between the datasets. Why PopGenome
-fails to load fasta files?
+2. Folders **fasta\_a**, **fasta\_b**, **fasta\_c** contain modified alignments. Identify the differences between the datasets. Why PopGenome fails to load fasta files?
 
 Obtaining summary statistics from alignments
 --------------------------------------------
@@ -61,35 +59,41 @@ beforehand. For this modules have to be run. Note that module **Fst**
 has to be executed with **F\_st**. The statistic Tajima’s D is part of
 the module **neutrality** not **Fst**
 
-\# Available statistics and examples show.slots(GENOME.class) \# Run
-necessary module GENOME.class \<- F~S~T.stats(GENOME.class) GENOME.class
-\<- neutrality.stats(GENOME.class) GENOME.class@n.sites GENOME.class@Pi
+```R
+# Available statistics and examples 
+show.slots(GENOME.class) 
+# Run necessary module 
+GENOME.class <- FST.stats(GENOME.class) 
+GENOME.class <- neutrality.stats(GENOME.class) 
+GENOME.class@n.sites 
+GENOME.class@Pi
 GENOME.class@Tajima.D
+```
 
-What different modules are available? (show.slots)
+3. What different modules are available? (show.slots)
 
-What module is necessary to be executed in order to obtain Wall.B
-\citep{Wall1999}?
+4. What module is necessary to be executed in order to obtain Wall.B?
 
-How could one obtain a per site estimate of Pi?
+5. How could one obtain a per site estimate of Pi?
 
 Obtaining statistics for regions
 --------------------------------
 
-\# Available region data and statistics GENOME.class@region.data
-GENOME.class@region.stats \# Examples
+```R
+# Available region data and statistics 
+GENOME.class@region.data
+GENOME.class@region.stats 
+# Examples
 GENOME.class@region.data@biallelic.sites[[1]][1:10]
 GENOME.class@region.data@transitions[[1]][1:10]
+```
 
-How many sites have gaps?
+6. How many sites have gaps?
 
-How many singletons are in the dataset?\
-(see also **An\_introduction\_to\_the\_PopGenome\_package.pdf**, section
+7. How many singletons are in the dataset? (see also **An\_introduction\_to\_the\_PopGenome\_package.pdf**, section
 3.1)
 
-What is the difference between *region.data* and *region.stats*?\
-(see also **Whole\_genome\_analyses\_using\_VCF\_files.pdf**, section 11
-and 12)
+8. What is the difference between *region.data* and *region.stats*? (see also **Whole\_genome\_analyses\_using\_VCF\_files.pdf**, section 11 and 12)
 
 Define outgroups and populations
 --------------------------------
@@ -99,24 +103,33 @@ only consider SNPs where the outgroup is monomorphic; the monomorphic
 nucleotide is then automatically defined as the major allele (encoded by
 0).
 
-\# Without defining populations get.individuals(GENOME.class)
-GENOME.class \<- neutrality.stats(GENOME.class,detail=TRUE)
-get.neutrality(GENOME.class)[[1]] \# Define populations with lists
-GENOME.class \<- set.populations(GENOME.class,list(
+```R
+# Without defining populations 
+get.individuals(GENOME.class)
+GENOME.class <- neutrality.stats(GENOME.class,detail=TRUE)
+get.neutrality(GENOME.class)[[1]] 
+# Define populations with lists
+GENOME.class <- set.populations(GENOME.class,list(
 c("CON","KAS-1","RUB-1","PER-1","RI-0","MR-0","TUL-0"),
-c("MH-0","YO-0","ITA-0","CVI-0","COL-2","LA-0","NC-1") )) \# Check
-whether grouping is set correctly GENOME.class@region.data@populations
-GENOME.class@region.data@populations2 GENOME.class@region.data@outgroup
-\# Recalculate statistics for populations GENOME.class \<-
-neutrality.stats(GENOME.class,detail=TRUE) GENOME.class@Tajima.D \# Each
-population get.neutrality(GENOME.class)[[1]]
-get.neutrality(GENOME.class)[[2]] \# Set an outgroup GENOME.class \<-
-set.outgroup(GENOME.class,c("Alyrata"))
-GENOME.class@region.data@outgroup GENOME.class \<-
-neutrality.stats(GENOME.class,detail=TRUE)
-get.neutrality(GENOME.class)[[1]] get.neutrality(GENOME.class)[[2]
+c("MH-0","YO-0","ITA-0","CVI-0","COL-2","LA-0","NC-1") )) 
+# Check whether grouping is set correctly 
+GENOME.class@region.data@populations
+GENOME.class@region.data@populations2 
+GENOME.class@region.data@outgroup
+# Recalculate statistics for populations 
+GENOME.class <-neutrality.stats(GENOME.class,detail=TRUE) 
+GENOME.class@Tajima.D 
+# Each population 
+get.neutrality(GENOME.class)[[1]]
+get.neutrality(GENOME.class)[[2]] 
+# Set an outgroup 
+GENOME.class <-set.outgroup(GENOME.class,c("Alyrata"))
+GENOME.class@region.data@outgroup GENOME.class <- neutrality.stats(GENOME.class,detail=TRUE)
+get.neutrality(GENOME.class)[[1]] 
+get.neutrality(GENOME.class)[[2]
+```
 
-Name implemented statistics that require an outgroup, e.g. that are
+9. Name implemented statistics that require an outgroup, e.g. that are
 calculated after defining the outgroup.
 
 What do you have to pay attention to when applying the McDonald-Kreitman
