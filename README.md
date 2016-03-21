@@ -171,25 +171,26 @@ GENOME2.class@region.data@CodingSNPS
 GENOME2.class.syn <- neutrality.stats(GENOME2.class,subsites="syn")
 GENOME2.class.syn@Tajima.D 
 GENOME2.class.syn@theta_Watterson
-
-What is theta Watterson and Tajima’s D of chromosome LGE22 for
-synonymous and nonsynonymous sites?
+```
+13. What is theta Watterson and Tajima’s D of chromosome LGE22 for synonymous and nonsynonymous sites?
 
 Analysing RADseq data using VCF 
 ================================
 
+```R
 \# SPLIT VCF FILE
-VCF~s~plit~i~nto~s~caffolds("rad/variants.vcf","rad~s~plit~v~cf") \#
-READ IN DATA GENOME.class \<-
-readData("rad~s~plit~v~cf~s~mall",format="VCF") pop1
-\<-as.character(read.table("rad/ind~s~pecies1.txt")[[1]]) pop2
-\<-as.character(read.table("rad/ind~s~pecies2.txt")[[1]]) GENOME.class
-\<- set.populations(GENOME.class,list(pop1,pop2),diploid=TRUE) \# CHECK
+VCF_split_into_scaffolds("rad/variants.vcf","rad_split_vcf") 
+# READ IN DATA, smaller subset
+GENOME.class <- readData("rad_split_vcf_small",format="VCF") 
+pop1<-as.character(read.table("rad/ind~s~pecies1.txt")[[1]]) 
+pop2<-as.character(read.table("rad/ind~s~pecies2.txt")[[1]]) 
+GENOME.class<- set.populations(GENOME.class,list(pop1,pop2),diploid=TRUE) 
+\# CHECK
 GENOME.class@populations
-
+```
 Obtaining statistics from multiple VCFs derived from RADseq
 -----------------------------------------------------------
-
+```R
 \# NEUTRALITY STATISTICS GENOME.class \<- neutrality.stats(GENOME.class,
 FAST=TRUE) get.neutrality(GENOME.class)[[1]] GENOME.class@Tajima.D \#
 FST GENOME.class \<- F~S~T.stats(GENOME.class)
@@ -199,18 +200,23 @@ get.diversity(GENOME.class) GENOME.class@nuc.diversity.within \# SFS
 GENOME.class \<-
 detail.stats(GENOME.class,site.spectrum=TRUE,site.FST=TRUE) results \<-
 get.detail(GENOME.class) GENOME.class@region.stats@minor.allele.freqs
+```
 
-Plot a site-frequency-spectrum for each population.
+14.Plot a site-frequency-spectrum for each population.
 
-CON \<- concatenate.regions(GENOME.class) CON \<-
-detail.stats(CON,site.spectrum=TRUE,site.FST=TRUE) results \<-
-get.detail(CON) allele~F~reqs \<-
-CON@region.stats@minor.allele.freqs[[1]] freq.table \<- list()
-freq.table[[1]] \<- table(allele~F~reqs) sfs \<- data.frame(freq.table)
+```R
+# Concatenate loci
+CON <- concatenate.regions(GENOME.class) 
+CON <- detail.stats(CON,site.spectrum=TRUE,site.FST=TRUE) 
+results <-get.detail(CON) 
+allele_Freqs <- CON@region.stats@minor.allele.freqs[[1]] 
+freq.table <- list()
+freq.table[[1]] <- table(allele_Freqs) 
+sfs <- data.frame(freq.table)
 
-library(ggplot2) ggplot(sfs, aes(x=allele~F~reqs, y=Freq)) +
-geom~b~ar(stat = ’identity’)
-
+library(ggplot2) 
+ggplot(sfs, aes(x=allele~F~reqs, y=Freq)) + geom~b~ar(stat = ’identity’)
+```
 Additional aspects
 ==================
 
