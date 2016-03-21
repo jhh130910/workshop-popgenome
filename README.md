@@ -46,9 +46,9 @@ get.sum.data(GENOME.class)
 get.individuals(GENOME.class)
 ```
 
-1. What statistics can one obtain from get.sum.data function?
+1.What statistics can one obtain from get.sum.data function?
 
-2. Folders **fasta\_a**, **fasta\_b**, **fasta\_c** contain modified alignments. Identify the differences between the datasets. Why PopGenome fails to load fasta files?
+2.Folders **fasta\_a**, **fasta\_b**, **fasta\_c** contain modified alignments. Identify the differences between the datasets. Why PopGenome fails to load fasta files?
 
 Obtaining summary statistics from alignments
 --------------------------------------------
@@ -70,11 +70,11 @@ GENOME.class@Pi
 GENOME.class@Tajima.D
 ```
 
-3. What different modules are available? (show.slots)
+3.What different modules are available? (show.slots)
 
-4. What module is necessary to be executed in order to obtain Wall.B?
+4.What module is necessary to be executed in order to obtain Wall.B?
 
-5. How could one obtain a per site estimate of Pi?
+5.How could one obtain a per site estimate of Pi?
 
 Obtaining statistics for regions
 --------------------------------
@@ -88,12 +88,12 @@ GENOME.class@region.data@biallelic.sites[[1]][1:10]
 GENOME.class@region.data@transitions[[1]][1:10]
 ```
 
-6. How many sites have gaps?
+6.How many sites have gaps?
 
-7. How many singletons are in the dataset? (see also **An\_introduction\_to\_the\_PopGenome\_package.pdf**, section
+7.How many singletons are in the dataset? (see also **An\_introduction\_to\_the\_PopGenome\_package.pdf**, section
 3.1)
 
-8. What is the difference between *region.data* and *region.stats*? (see also **Whole\_genome\_analyses\_using\_VCF\_files.pdf**, section 11 and 12)
+8.What is the difference between *region.data* and *region.stats*? (see also **Whole\_genome\_analyses\_using\_VCF\_files.pdf**, section 11 and 12)
 
 Define outgroups and populations
 --------------------------------
@@ -129,10 +129,10 @@ get.neutrality(GENOME.class)[[1]]
 get.neutrality(GENOME.class)[[2]
 ```
 
-9. Name implemented statistics that require an outgroup, e.g. that are
+9.Name implemented statistics that require an outgroup, e.g. that are
 calculated after defining the outgroup.
 
-10. What do you have to pay attention to when applying the McDonald-Kreitman
+10.What do you have to pay attention to when applying the McDonald-Kreitman
 test?\
 (see **Whole\_genome\_analyses\_using\_VCF\_files.pdf**)
 
@@ -155,9 +155,9 @@ GENOME.class <- neutrality.stats(GENOME.class, FAST=TRUE)
 get.sum.data(GENOME.class) 
 GENOME.class@region.data
 ```
-11. What parameters need to be defined to *readVCF*? (see **PopGenome.pdf**)
+11.What parameters need to be defined to *readVCF*? (see **PopGenome.pdf**)
 
-12. What is the overall diversity (theta and pi) of chromosome LGE22?
+12.What is the overall diversity (theta and pi) of chromosome LGE22?
 
 Loading VCF files with annotation
 ---------------------------------
@@ -172,7 +172,7 @@ GENOME2.class.syn <- neutrality.stats(GENOME2.class,subsites="syn")
 GENOME2.class.syn@Tajima.D 
 GENOME2.class.syn@theta_Watterson
 ```
-13. What is theta Watterson and Tajima’s D of chromosome LGE22 for synonymous and nonsynonymous sites?
+13.What is theta Watterson and Tajima’s D of chromosome LGE22 for synonymous and nonsynonymous sites?
 
 Analysing RADseq data using VCF 
 ================================
@@ -191,15 +191,21 @@ GENOME.class@populations
 Obtaining statistics from multiple VCFs derived from RADseq
 -----------------------------------------------------------
 ```R
-\# NEUTRALITY STATISTICS GENOME.class \<- neutrality.stats(GENOME.class,
-FAST=TRUE) get.neutrality(GENOME.class)[[1]] GENOME.class@Tajima.D \#
-FST GENOME.class \<- F~S~T.stats(GENOME.class)
-get.F~S~T(GENOME.class)[[1]] GENOME.class@nucleotide.F~S~T \# DIVERSITY
-GENOME.class \<- diversity.stats(GENOME.class)
-get.diversity(GENOME.class) GENOME.class@nuc.diversity.within \# SFS
-GENOME.class \<-
-detail.stats(GENOME.class,site.spectrum=TRUE,site.FST=TRUE) results \<-
-get.detail(GENOME.class) GENOME.class@region.stats@minor.allele.freqs
+# NEUTRALITY STATISTICS 
+GENOME.class <- neutrality.stats(GENOME.class, FAST=TRUE) 
+get.neutrality(GENOME.class)[[1]] GENOME.class@Tajima.D 
+# FST 
+GENOME.class <- F_ST.stats(GENOME.class)
+get.F_ST(GENOME.class)[[1]] 
+GENOME.class@nucleotide.F_ST 
+# DIVERSITY
+GENOME.class <- diversity.stats(GENOME.class)
+get.diversity(GENOME.class) 
+GENOME.class@nuc.diversity.within 
+# SFS
+GENOME.class <-detail.stats(GENOME.class,site.spectrum=TRUE,site.FST=TRUE) 
+results <- get.detail(GENOME.class) 
+GENOME.class@region.stats@minor.allele.freqs
 ```
 
 14.Plot a site-frequency-spectrum for each population.
@@ -215,7 +221,7 @@ freq.table[[1]] <- table(allele_Freqs)
 sfs <- data.frame(freq.table)
 
 library(ggplot2) 
-ggplot(sfs, aes(x=allele~F~reqs, y=Freq)) + geom~b~ar(stat = ’identity’)
+ggplot(sfs, aes(x=allele_Freqs, y=Freq)) + geom_bar(stat = ’identity’)
 ```
 Additional aspects
 ==================
