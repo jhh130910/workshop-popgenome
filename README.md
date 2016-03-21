@@ -1,3 +1,6 @@
+Ressourcen and Preparation
+============
+
 Online Link: <http://tonig-evo.github.io/workshop-popgenome>
 
 PDFs:
@@ -5,7 +8,7 @@ PDFs:
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome.pdf>
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/Whole_genome_analyses_using_VCF_files.pdf>
 
-Preparation
+Work on iceberg, copying necessary files
 ```
 mkdir PopGenome
 cd PopGenome
