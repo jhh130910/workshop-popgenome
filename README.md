@@ -29,7 +29,7 @@ Load library into R
 ===================
 
 ```R
-\# Loading module 
+# Loading module 
 library(PopGenome)
 ```
 
@@ -63,7 +63,7 @@ the module **neutrality** not **Fst**
 # Available statistics and examples 
 show.slots(GENOME.class) 
 # Run necessary module 
-GENOME.class <- FST.stats(GENOME.class) 
+GENOME.class <- F_ST.stats(GENOME.class) 
 GENOME.class <- neutrality.stats(GENOME.class) 
 GENOME.class@n.sites 
 GENOME.class@Pi
@@ -132,7 +132,7 @@ get.neutrality(GENOME.class)[[2]
 9. Name implemented statistics that require an outgroup, e.g. that are
 calculated after defining the outgroup.
 
-What do you have to pay attention to when applying the McDonald-Kreitman
+10. What do you have to pay attention to when applying the McDonald-Kreitman
 test?\
 (see **Whole\_genome\_analyses\_using\_VCF\_files.pdf**)
 
@@ -147,29 +147,30 @@ with **readData** or a single VCF file with **readVCF**. To read a VCF
 file using *readVCF* it needs to be compressed with *bgzip* and indexed
 with *tabix*. The tabix files need to be placed in the same folder as
 the vcf file.
+```R
+# What parameters need to be defined 
+GENOME.class <-readVCF("great~t~it/vcf/LGE22.vcf.gz", 6000,"chrLGE22~P~arus~M~ajor~b~uild~1~.0.2",1,773534)
+GENOME.class@region.names 
+GENOME.class <- neutrality.stats(GENOME.class, FAST=TRUE) 
+get.sum.data(GENOME.class) 
+GENOME.class@region.data
+```
+11. What parameters need to be defined to *readVCF*? (see **PopGenome.pdf**)
 
-\# What parameters need to be defined GENOME.class\<-
-readVCF("great~t~it/vcf/LGE22.vcf.gz",
-6000,"chrLGE22~P~arus~M~ajor~b~uild~1~.0.2",1,773534)
-GENOME.class@region.names GENOME.class\<- neutrality.stats(GENOME.class,
-FAST=TRUE) get.sum.data(GENOME.class) GENOME.class@region.data
-
-What parameters need to be defined to *readVCF*? (see **PopGenome.pdf**)
-
-What is the overall diversity (theta and pi) of chromosome LGE22?
+12. What is the overall diversity (theta and pi) of chromosome LGE22?
 
 Loading VCF files with annotation
 ---------------------------------
-
-GENOME2.class \<- readData("great~t~it/vcf2",format="VCF",
-gffpath="great~t~it/gff") get.sum.data(GENOME2.class)
-GENOME2.class@region.data \#get.codons(GENOME.class,1) \#split \<-
-splitting.data(GENOME2.class, subsites="CDS") GENOME2.class \<-
-set.synnonsyn(GENOME2.class, ref.chr="great~t~it/fasta/LGE22.fasta")
+```R
+GENOME2.class <- readData("great_tit/vcf2",format="VCF", gffpath="great_tit/gff") 
+get.sum.data(GENOME2.class)
+GENOME2.class@region.data 
+GENOME2.class <- set.synnonsyn(GENOME2.class, ref.chr="great~t~it/fasta/LGE22.fasta")
 GENOME2.class@region.data@synonymous
-GENOME2.class@region.data@CodingSNPS GENOME2.class.syn \<-
-neutrality.stats(GENOME2.class,subsites="syn")
-GENOME2.class.syn@Tajima.D GENOME2.class.syn@theta~W~atterson
+GENOME2.class@region.data@CodingSNPS 
+GENOME2.class.syn <- neutrality.stats(GENOME2.class,subsites="syn")
+GENOME2.class.syn@Tajima.D 
+GENOME2.class.syn@theta_Watterson
 
 What is theta Watterson and Tajima’s D of chromosome LGE22 for
 synonymous and nonsynonymous sites?
