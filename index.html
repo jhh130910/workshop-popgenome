@@ -1,25 +1,45 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <title>Workshop-popgenome by tonig-evo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Workshop-popgenome by tonig-evo</title>
   </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Workshop-popgenome</h1>
-      <h2 class="project-tagline">Tutorial about R package PopGenome</h2>
-      <a href="https://github.com/tonig-evo/workshop-popgenome" class="btn">View on GitHub</a>
-      <a href="https://github.com/tonig-evo/workshop-popgenome/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/tonig-evo/workshop-popgenome/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
 
-    <section class="main-content">
-      <p><a href="http://tonig-evo.github.io/workshop-popgenome">http://tonig-evo.github.io/workshop-popgenome</a></p>
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Workshop-popgenome</h1>
+          <h2>Tutorial about R package PopGenome</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/tonig-evo/workshop-popgenome/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/tonig-evo/workshop-popgenome/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/tonig-evo/workshop-popgenome" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p>Online Link: <a href="http://tonig-evo.github.io/workshop-popgenome">http://tonig-evo.github.io/workshop-popgenome</a></p>
+
+<p>PDFs:</p>
+
+<ul>
+<li><a href="https://github.com/tonig-evo/workshop-popgenome/blob/master/An_introduction_to_the_PopGenome_package.pdf">https://github.com/tonig-evo/workshop-popgenome/blob/master/An_introduction_to_the_PopGenome_package.pdf</a></li>
+<li><a href="https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome.pdf">https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome.pdf</a></li>
+<li><a href="https://github.com/tonig-evo/workshop-popgenome/blob/master/Whole_genome_analyses_using_VCF_files.pdf">https://github.com/tonig-evo/workshop-popgenome/blob/master/Whole_genome_analyses_using_VCF_files.pdf</a></li>
+</ul>
 
 <h1>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h1>
@@ -103,7 +123,7 @@ show.slots(<span class="pl-smi">GENOME.class</span>)
 
 <p>6.How many sites have gaps?</p>
 
-<p>7.How many singletons are in the dataset? (see also <a href="https://github.com/tonig-evo/workshop-popgenome/blob/master/An_introduction_to_the_PopGenome_package.pdf"><strong>An_introduction_to_the_PopGenome_package.pdf</strong></a>, section
+<p>7.How many singletons are in the dataset? (see also <strong>An_introduction_to_the_PopGenome_package.pdf</strong>, section
 3.1)</p>
 
 <p>8.What is the difference between <em>region.data</em> and <em>region.stats</em>? (see also <strong>Whole_genome_analyses_using_VCF_files.pdf</strong>, section 11 and 12)</p>
@@ -144,7 +164,7 @@ get.neutrality(<span class="pl-smi">GENOME.class</span>)[[<span class="pl-c1">2<
 calculated after defining the outgroup.</p>
 
 <p>10.What do you have to pay attention to when applying the McDonald-Kreitman
-test?\
+test?
 (see <strong>Whole_genome_analyses_using_VCF_files.pdf</strong>)</p>
 
 <h1>
@@ -258,15 +278,15 @@ files to ensure that sequence and annotation are matched correctly.</p>
 <p>PopGenome can use missing data, e.g. positions with gaps. Also note the
 differences between <em>readData</em> and <em>readVCF</em> for your own analysis (for
 further details see <strong>Whole_genome_analyses_using_VCF_files.pdf</strong>).</p>
+        </section>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/tonig-evo/workshop-popgenome">Workshop-popgenome</a> is maintained by <a href="https://github.com/tonig-evo">tonig-evo</a>.</span>
+        <footer>
+          Workshop-popgenome is maintained by <a href="https://github.com/tonig-evo">tonig-evo</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
+        
+      </div>
+    </div>
   </body>
 </html>
