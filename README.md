@@ -182,8 +182,8 @@ Analysing RADseq data using VCF
 VCF_split_into_scaffolds("rad/variants.vcf","rad_split_vcf") 
 # READ IN DATA, smaller subset
 GENOME.class <- readData("rad_split_vcf_small",format="VCF") 
-pop1<-as.character(read.table("rad/ind~s~pecies1.txt")[[1]]) 
-pop2<-as.character(read.table("rad/ind~s~pecies2.txt")[[1]]) 
+pop1<-as.character(read.table("rad/ind_species1.txt")[[1]]) 
+pop2<-as.character(read.table("rad/ind_species2.txt")[[1]]) 
 GENOME.class<- set.populations(GENOME.class,list(pop1,pop2),diploid=TRUE) 
 # CHECK
 GENOME.class@populations
