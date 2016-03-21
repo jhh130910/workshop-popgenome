@@ -149,7 +149,7 @@ with *tabix*. The tabix files need to be placed in the same folder as
 the vcf file.
 ```R
 # What parameters need to be defined 
-GENOME.class <-readVCF("great~t~it/vcf/LGE22.vcf.gz", 6000,"chrLGE22~P~arus~M~ajor~b~uild~1~.0.2",1,773534)
+GENOME.class <-readVCF("great_tit/vcf/LGE22.vcf.gz", 6000,"chrLGE22_Parus_Major_build_1.0.2",1,773534)
 GENOME.class@region.names 
 GENOME.class <- neutrality.stats(GENOME.class, FAST=TRUE) 
 get.sum.data(GENOME.class) 
@@ -165,7 +165,7 @@ Loading VCF files with annotation
 GENOME2.class <- readData("great_tit/vcf2",format="VCF", gffpath="great_tit/gff") 
 get.sum.data(GENOME2.class)
 GENOME2.class@region.data 
-GENOME2.class <- set.synnonsyn(GENOME2.class, ref.chr="great~t~it/fasta/LGE22.fasta")
+GENOME2.class <- set.synnonsyn(GENOME2.class, ref.chr="great_tit/fasta/LGE22.fasta")
 GENOME2.class@region.data@synonymous
 GENOME2.class@region.data@CodingSNPS 
 GENOME2.class.syn <- neutrality.stats(GENOME2.class,subsites="syn")
