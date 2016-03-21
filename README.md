@@ -5,7 +5,7 @@ Introduction
 
 PopGenome is an R package
 (<https://cran.r-project.org/web/packages/PopGenome/index.html>) for
-analyses of population genomic data \citep{Pfeifer2014}. For this
+analyses of population genomic data. For this
 tutorial, please make sure that your R working directory is set
 correctly and you have all the packages installed, e.g.
 install.packages("PopGenome"). The following files are necessary to
@@ -178,14 +178,14 @@ Analysing RADseq data using VCF
 ================================
 
 ```R
-\# SPLIT VCF FILE
+# SPLIT VCF FILE
 VCF_split_into_scaffolds("rad/variants.vcf","rad_split_vcf") 
 # READ IN DATA, smaller subset
 GENOME.class <- readData("rad_split_vcf_small",format="VCF") 
 pop1<-as.character(read.table("rad/ind~s~pecies1.txt")[[1]]) 
 pop2<-as.character(read.table("rad/ind~s~pecies2.txt")[[1]]) 
 GENOME.class<- set.populations(GENOME.class,list(pop1,pop2),diploid=TRUE) 
-\# CHECK
+# CHECK
 GENOME.class@populations
 ```
 Obtaining statistics from multiple VCFs derived from RADseq
