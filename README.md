@@ -16,14 +16,14 @@ correctly and you have all the packages installed, e.g.
 install.packages("PopGenome"). The following files are necessary to
 conduct this practical session:
 
--   fasta\_file.txt, a fasta file for one locus from different
+-   fasta_file.txt, a fasta file for one locus from different
     *Arabidopsis thaliana* individuals (accessions) and the outgroup
     sequence from *Arabidopsis lyrata* in the folder **fasta**
 
 -   LGE22.gff, LGE22.vcf, LGE22.fa in subfolders in the folder
-    **great\_tit**
+    **great_tit**
 
--   variants.vcf, ind\_species1.txt, ind\_species2.txt, rad\_assembly.fa
+-   variants.vcf, ind_species1.txt, ind_species2.txt, rad_assembly.fa
     in the folder **rad**
 
 To get an overview about the file contents, inspect files with a text
@@ -53,7 +53,7 @@ get.individuals(GENOME.class)
 
 1.What statistics can one obtain from get.sum.data function?
 
-2.Folders **fasta\_a**, **fasta\_b**, **fasta\_c** contain modified alignments. Identify the differences between the datasets. Why PopGenome fails to load fasta files?
+2.Folders **fasta_a**, **fasta_b**, **fasta_c** contain modified alignments. Identify the differences between the datasets. Why PopGenome fails to load fasta files?
 
 Obtaining summary statistics from alignments
 --------------------------------------------
@@ -61,7 +61,7 @@ Obtaining summary statistics from alignments
 **Note:** Since calculation of certain population genetic parameter can
 be computational intense, they have to be executed separately
 beforehand. For this modules have to be run. Note that module **Fst**
-has to be executed with **F\_st**. The statistic Tajima’s D is part of
+has to be executed with **F_st**. The statistic Tajima’s D is part of
 the module **neutrality** not **Fst**
 
 ```R
@@ -95,10 +95,10 @@ GENOME.class@region.data@transitions[[1]][1:10]
 
 6.How many sites have gaps?
 
-7.How many singletons are in the dataset? (see also **An\_introduction\_to\_the\_PopGenome\_package.pdf**, section
+7.How many singletons are in the dataset? (see also **An_introduction_to_the_PopGenome_package.pdf**, section
 3.1)
 
-8.What is the difference between *region.data* and *region.stats*? (see also **Whole\_genome\_analyses\_using\_VCF\_files.pdf**, section 11 and 12)
+8.What is the difference between *region.data* and *region.stats*? (see also **Whole_genome_analyses_using_VCF_files.pdf**, section 11 and 12)
 
 Define outgroups and populations
 --------------------------------
@@ -138,8 +138,8 @@ get.neutrality(GENOME.class)[[2]
 calculated after defining the outgroup.
 
 10.What do you have to pay attention to when applying the McDonald-Kreitman
-test?\
-(see **Whole\_genome\_analyses\_using\_VCF\_files.pdf**)
+test?
+(see **Whole_genome_analyses_using_VCF_files.pdf**)
 
 Analysing VCF files for whole genome data
 =========================================
@@ -254,4 +254,4 @@ Handling missing data and differences between readData and readVCF
 
 PopGenome can use missing data, e.g. positions with gaps. Also note the
 differences between *readData* and *readVCF* for your own analysis (for
-further details see **Whole\_genome\_analyses\_using\_VCF\_files.pdf**).
+further details see **Whole_genome_analyses_using_VCF_files.pdf**).
