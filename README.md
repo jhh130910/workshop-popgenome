@@ -90,7 +90,7 @@ GENOME.class@region.data@transitions[[1]][1:10]
 
 6.How many sites have gaps?
 
-7.How many singletons are in the dataset? (see also [**An\_introduction\_to\_the\_PopGenome\_package.pdf**](An_introduction_to_the_PopGenome_package.pdf), section
+7.How many singletons are in the dataset? (see also [**An\_introduction\_to\_the\_PopGenome\_package.pdf**](<https://github.com/tonig-evo/workshop-popgenome/blob/master/An_introduction_to_the_PopGenome_package.pdf>), section
 3.1)
 
 8.What is the difference between *region.data* and *region.stats*? (see also **Whole\_genome\_analyses\_using\_VCF\_files.pdf**, section 11 and 12)
