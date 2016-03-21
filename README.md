@@ -1,3 +1,5 @@
+<http://tonig-evo.github.io/workshop-popgenome>
+
 Introduction
 ============
 
@@ -9,7 +11,7 @@ correctly and you have all the packages installed, e.g.
 install.packages("PopGenome"). The following files are necessary to
 conduct this practical session:
 
--   fasta\_file.txt, fasta files for one locus from different
+-   fasta\_file.txt, a fasta file for one locus from different
     *Arabidopsis thaliana* individuals (accessions) and the outgroup
     sequence from *Arabidopsis lyrata* in the folder **fasta**
 
@@ -26,7 +28,10 @@ starting to work on them.
 Load library into R
 ===================
 
-\# Loading module library(PopGenome)
+```R
+\# Loading module 
+library(PopGenome)
+```
 
 Fasta Files
 ===========
@@ -38,10 +43,10 @@ Reading Fasta Files
 # Reading data, read fasta from folder 
 GENOME.class <- readData("fasta") 
 get.sum.data(GENOME.class)
+get.individuals(GENOME.class)
 ```
 
-
-What statistics can one obtain from get.sum.data function?
+1. What statistics can one obtain from get.sum.data function?
 
 Folders **fasta\_a**, **fasta\_b**, **fasta\_c** contain modified
 alignments. Identify the differences between the datasets. Why PopGenome
@@ -56,14 +61,10 @@ beforehand. For this modules have to be run. Note that module **Fst**
 has to be executed with **F\_st**. The statistic Tajima’s D is part of
 the module **neutrality** not **Fst**
 
-```R
-# Available statistics and examples 
-show.slots(GENOME.class) 
-# Run
+\# Available statistics and examples show.slots(GENOME.class) \# Run
 necessary module GENOME.class \<- F~S~T.stats(GENOME.class) GENOME.class
 \<- neutrality.stats(GENOME.class) GENOME.class@n.sites GENOME.class@Pi
-GENOME.class@TajimaD
-```
+GENOME.class@Tajima.D
 
 What different modules are available? (show.slots)
 
@@ -82,10 +83,13 @@ GENOME.class@region.data@transitions[[1]][1:10]
 
 How many sites have gaps?
 
-How many singletons are in the dataset?
+How many singletons are in the dataset?\
+(see also **An\_introduction\_to\_the\_PopGenome\_package.pdf**, section
+3.1)
 
 What is the difference between *region.data* and *region.stats*?\
-(see also **Whole\_genome\_analyses\_using\_VCF\_files.pdf**)
+(see also **Whole\_genome\_analyses\_using\_VCF\_files.pdf**, section 11
+and 12)
 
 Define outgroups and populations
 --------------------------------
@@ -95,32 +99,29 @@ only consider SNPs where the outgroup is monomorphic; the monomorphic
 nucleotide is then automatically defined as the major allele (encoded by
 0).
 
-get.individuals(GENOME.class) GENOME.class \<-
-set.populations(GENOME.class,list(
+\# Without defining populations get.individuals(GENOME.class)
+GENOME.class \<- neutrality.stats(GENOME.class,detail=TRUE)
+get.neutrality(GENOME.class)[[1]] \# Define populations with lists
+GENOME.class \<- set.populations(GENOME.class,list(
 c("CON","KAS-1","RUB-1","PER-1","RI-0","MR-0","TUL-0"),
 c("MH-0","YO-0","ITA-0","CVI-0","COL-2","LA-0","NC-1") )) \# Check
 whether grouping is set correctly GENOME.class@region.data@populations
 GENOME.class@region.data@populations2 GENOME.class@region.data@outgroup
 \# Recalculate statistics for populations GENOME.class \<-
-neutrality.stats(GENOME.class) GENOME.class@Tajima.D
+neutrality.stats(GENOME.class,detail=TRUE) GENOME.class@Tajima.D \# Each
+population get.neutrality(GENOME.class)[[1]]
+get.neutrality(GENOME.class)[[2]] \# Set an outgroup GENOME.class \<-
+set.outgroup(GENOME.class,c("Alyrata"))
+GENOME.class@region.data@outgroup GENOME.class \<-
+neutrality.stats(GENOME.class,detail=TRUE)
+get.neutrality(GENOME.class)[[1]] get.neutrality(GENOME.class)[[2]
 
-Name three implemented statistics that require an outgroup.
+Name implemented statistics that require an outgroup, e.g. that are
+calculated after defining the outgroup.
 
 What do you have to pay attention to when applying the McDonald-Kreitman
 test?\
 (see **Whole\_genome\_analyses\_using\_VCF\_files.pdf**)
-
-Including features from GFF files to Fasta files
-------------------------------------------------
-
--   If no gff-file was specified when the data was read in, it is
-    assumed that the alignment is in the correct reading frame (starting
-    at a first codon position)
-
--   The GFF folder contains GFF-files for each alignment stored in the
-    FASTA folder. The GFF files should have the same names (without any
-    extensions like .fas or .gff) as the corresponding FASTA files to
-    ensure that sequence and annotation are matched correctly.
 
 Analysing VCF files for whole genome data
 =========================================
@@ -128,15 +129,11 @@ Analysing VCF files for whole genome data
 Loading VCF files
 -----------------
 
-There are two ways to read in VCF files:
-
--   Folder of VCF files: **readData**
-
--   Single VCF file: **readVCF**
-
-To read a VCF file using *readVCF* it needs to be compressed with
-*bgzip* and indexed with *tabix*. The tabix files need to be placed in
-the same folder as the vcf file.
+There are two ways to read in VCF files, either a folder of VCF files
+with **readData** or a single VCF file with **readVCF**. To read a VCF
+file using *readVCF* it needs to be compressed with *bgzip* and indexed
+with *tabix*. The tabix files need to be placed in the same folder as
+the vcf file.
 
 \# What parameters need to be defined GENOME.class\<-
 readVCF("great~t~it/vcf/LGE22.vcf.gz",
@@ -157,12 +154,11 @@ GENOME2.class@region.data \#get.codons(GENOME.class,1) \#split \<-
 splitting.data(GENOME2.class, subsites="CDS") GENOME2.class \<-
 set.synnonsyn(GENOME2.class, ref.chr="great~t~it/fasta/LGE22.fasta")
 GENOME2.class@region.data@synonymous
-GENOME2.class@region.data@CodingSNPS
+GENOME2.class@region.data@CodingSNPS GENOME2.class.syn \<-
+neutrality.stats(GENOME2.class,subsites="syn")
+GENOME2.class.syn@Tajima.D GENOME2.class.syn@theta~W~atterson
 
-What are the advantages and disadvantages of *readData* and *readVCF*?\
-(see **Whole\_genome\_analyses\_using\_VCF\_files.pdf**)
-
-What is the overall diversity (theta and pi) of chromosome LGE22 for
+What is theta Watterson and Tajima’s D of chromosome LGE22 for
 synonymous and nonsynonymous sites?
 
 Analysing RADseq data using VCF 
@@ -170,8 +166,9 @@ Analysing RADseq data using VCF
 
 \# SPLIT VCF FILE
 VCF~s~plit~i~nto~s~caffolds("rad/variants.vcf","rad~s~plit~v~cf") \#
-READ IN DATA GENOME.class \<- readData("rad~s~plit~v~cf",format="VCF")
-pop1 \<-as.character(read.table("rad/ind~s~pecies1.txt")[[1]]) pop2
+READ IN DATA GENOME.class \<-
+readData("rad~s~plit~v~cf~s~mall",format="VCF") pop1
+\<-as.character(read.table("rad/ind~s~pecies1.txt")[[1]]) pop2
 \<-as.character(read.table("rad/ind~s~pecies2.txt")[[1]]) GENOME.class
 \<- set.populations(GENOME.class,list(pop1,pop2),diploid=TRUE) \# CHECK
 GENOME.class@populations
@@ -191,28 +188,39 @@ get.detail(GENOME.class) GENOME.class@region.stats@minor.allele.freqs
 
 Plot a site-frequency-spectrum for each population.
 
-results \<- get.detail(GENOME.class) allele~F~reqs \<-
-GENOME.class@region.stats@minor.allele.freqs[[1]]
-
-freq.table \<- list() freq.table[[1]] \<- table(allele~F~reqs) sfs \<-
-data.frame(freq.table)
+CON \<- concatenate.regions(GENOME.class) CON \<-
+detail.stats(CON,site.spectrum=TRUE,site.FST=TRUE) results \<-
+get.detail(CON) allele~F~reqs \<-
+CON@region.stats@minor.allele.freqs[[1]] freq.table \<- list()
+freq.table[[1]] \<- table(allele~F~reqs) sfs \<- data.frame(freq.table)
 
 library(ggplot2) ggplot(sfs, aes(x=allele~F~reqs, y=Freq)) +
 geom~b~ar(stat = ’identity’)
 
-More information
-================
+Additional aspects
+==================
 
 More information are available in three pdfs accompanied by the program
-(see folder **pdf**):
+(see folder **pdf**): **An introduction to the PopGenome package**:
+Sliding window analysis, reading SNP data files, coalescent simulations;
+**Whole genome analyses using PopGenome and VCF files**: Details about
+reading tabixed VCF files, examples, graphical output, parallel read-in,
+pre-filtering VCF files; **Package PopGenome**: Documentation about all
+implemented functions with examples
 
-1.  **An introduction to the PopGenome package**: Sliding window
-    analysis, reading SNP data files, coalescent simulations
+Including features from GFF files to Fasta files
+------------------------------------------------
 
-2.  **Whole genome analyses using PopGenome and VCF files**: Details
-    about reading tabixed VCF files, examples, graphical output,
-    parallel read-in, pre-filtering VCF files, WhopGenome
-    \citep{Wittelsbuerger2015}
+If no gff-file was specified when the data was read in, it is assumed
+that the alignment is in the correct reading frame (starting at a first
+codon position). The GFF folder contains GFF-files for each alignment
+stored in the FASTA folder. The GFF files should have the same names
+(without any extensions like .fas or .gff) as the corresponding FASTA
+files to ensure that sequence and annotation are matched correctly.
 
-3.  **Package PopGenome**: Documentation about all implemented functions
-    with examples
+Handling missing data and differences between readData and readVCF
+------------------------------------------------------------------
+
+PopGenome can use missing data, e.g. positions with gaps. Also note the
+differences between *readData* and *readVCF* for your own analysis (for
+further details see **Whole\_genome\_analyses\_using\_VCF\_files.pdf**).
