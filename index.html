@@ -38,7 +38,7 @@
 
 <p>PopGenome is an R package
 (<a href="https://cran.r-project.org/web/packages/PopGenome/index.html">https://cran.r-project.org/web/packages/PopGenome/index.html</a>) for
-analyses of population genomic data \citep{Pfeifer2014}. For this
+analyses of population genomic data. For this
 tutorial, please make sure that your R working directory is set
 correctly and you have all the packages installed, e.g.
 install.packages("PopGenome"). The following files are necessary to
@@ -75,10 +75,9 @@ library(<span class="pl-smi">PopGenome</span>)</pre></div>
 get.sum.data(<span class="pl-smi">GENOME.class</span>)
 get.individuals(<span class="pl-smi">GENOME.class</span>)</pre></div>
 
-<ol>
-<li><p>What statistics can one obtain from get.sum.data function?</p></li>
-<li><p>Folders <strong>fasta_a</strong>, <strong>fasta_b</strong>, <strong>fasta_c</strong> contain modified alignments. Identify the differences between the datasets. Why PopGenome fails to load fasta files?</p></li>
-</ol>
+<p>1.What statistics can one obtain from get.sum.data function?</p>
+
+<p>2.Folders <strong>fasta_a</strong>, <strong>fasta_b</strong>, <strong>fasta_c</strong> contain modified alignments. Identify the differences between the datasets. Why PopGenome fails to load fasta files?</p>
 
 <h2>
 <a id="obtaining-summary-statistics-from-alignments" class="anchor" href="#obtaining-summary-statistics-from-alignments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obtaining summary statistics from alignments</h2>
@@ -98,11 +97,11 @@ show.slots(<span class="pl-smi">GENOME.class</span>)
 <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">Pi</span>
 <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">Tajima.D</span></pre></div>
 
-<ol>
-<li><p>What different modules are available? (show.slots)</p></li>
-<li><p>What module is necessary to be executed in order to obtain Wall.B?</p></li>
-<li><p>How could one obtain a per site estimate of Pi?</p></li>
-</ol>
+<p>3.What different modules are available? (show.slots)</p>
+
+<p>4.What module is necessary to be executed in order to obtain Wall.B?</p>
+
+<p>5.How could one obtain a per site estimate of Pi?</p>
 
 <h2>
 <a id="obtaining-statistics-for-regions" class="anchor" href="#obtaining-statistics-for-regions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obtaining statistics for regions</h2>
@@ -114,12 +113,12 @@ show.slots(<span class="pl-smi">GENOME.class</span>)
 <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">region.data</span><span class="pl-k">@</span><span class="pl-smi">biallelic.sites</span>[[<span class="pl-c1">1</span>]][<span class="pl-c1">1</span><span class="pl-k">:</span><span class="pl-c1">10</span>]
 <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">region.data</span><span class="pl-k">@</span><span class="pl-smi">transitions</span>[[<span class="pl-c1">1</span>]][<span class="pl-c1">1</span><span class="pl-k">:</span><span class="pl-c1">10</span>]</pre></div>
 
-<ol>
-<li><p>How many sites have gaps?</p></li>
-<li><p>How many singletons are in the dataset? (see also <strong>An_introduction_to_the_PopGenome_package.pdf</strong>, section
-3.1)</p></li>
-<li><p>What is the difference between <em>region.data</em> and <em>region.stats</em>? (see also <strong>Whole_genome_analyses_using_VCF_files.pdf</strong>, section 11 and 12)</p></li>
-</ol>
+<p>6.How many sites have gaps?</p>
+
+<p>7.How many singletons are in the dataset? (see also <strong>An_introduction_to_the_PopGenome_package.pdf</strong>, section
+3.1)</p>
+
+<p>8.What is the difference between <em>region.data</em> and <em>region.stats</em>? (see also <strong>Whole_genome_analyses_using_VCF_files.pdf</strong>, section 11 and 12)</p>
 
 <h2>
 <a id="define-outgroups-and-populations" class="anchor" href="#define-outgroups-and-populations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Define outgroups and populations</h2>
@@ -153,13 +152,12 @@ get.neutrality(<span class="pl-smi">GENOME.class</span>)[[<span class="pl-c1">2<
 get.neutrality(<span class="pl-smi">GENOME.class</span>)[[<span class="pl-c1">1</span>]] 
 get.neutrality(<span class="pl-smi">GENOME.class</span>)[[<span class="pl-c1">2</span>]</pre></div>
 
-<ol>
-<li><p>Name implemented statistics that require an outgroup, e.g. that are
-calculated after defining the outgroup.</p></li>
-<li><p>What do you have to pay attention to when applying the McDonald-Kreitman
+<p>9.Name implemented statistics that require an outgroup, e.g. that are
+calculated after defining the outgroup.</p>
+
+<p>10.What do you have to pay attention to when applying the McDonald-Kreitman
 test?\
-(see <strong>Whole_genome_analyses_using_VCF_files.pdf</strong>)</p></li>
-</ol>
+(see <strong>Whole_genome_analyses_using_VCF_files.pdf</strong>)</p>
 
 <h1>
 <a id="analysing-vcf-files-for-whole-genome-data" class="anchor" href="#analysing-vcf-files-for-whole-genome-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analysing VCF files for whole genome data</h1>
@@ -174,16 +172,15 @@ with <em>tabix</em>. The tabix files need to be placed in the same folder as
 the vcf file.</p>
 
 <div class="highlight highlight-source-r"><pre><span class="pl-c"># What parameters need to be defined </span>
-<span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span>readVCF(<span class="pl-s"><span class="pl-pds">"</span>great~t~it/vcf/LGE22.vcf.gz<span class="pl-pds">"</span></span>, <span class="pl-c1">6000</span>,<span class="pl-s"><span class="pl-pds">"</span>chrLGE22~P~arus~M~ajor~b~uild~1~.0.2<span class="pl-pds">"</span></span>,<span class="pl-c1">1</span>,<span class="pl-c1">773534</span>)
+<span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span>readVCF(<span class="pl-s"><span class="pl-pds">"</span>great_tit/vcf/LGE22.vcf.gz<span class="pl-pds">"</span></span>, <span class="pl-c1">6000</span>,<span class="pl-s"><span class="pl-pds">"</span>chrLGE22_Parus_Major_build_1.0.2<span class="pl-pds">"</span></span>,<span class="pl-c1">1</span>,<span class="pl-c1">773534</span>)
 <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">region.names</span> 
 <span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span> neutrality.stats(<span class="pl-smi">GENOME.class</span>, <span class="pl-v">FAST</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>) 
 get.sum.data(<span class="pl-smi">GENOME.class</span>) 
 <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">region.data</span></pre></div>
 
-<ol>
-<li><p>What parameters need to be defined to <em>readVCF</em>? (see <strong>PopGenome.pdf</strong>)</p></li>
-<li><p>What is the overall diversity (theta and pi) of chromosome LGE22?</p></li>
-</ol>
+<p>11.What parameters need to be defined to <em>readVCF</em>? (see <strong>PopGenome.pdf</strong>)</p>
+
+<p>12.What is the overall diversity (theta and pi) of chromosome LGE22?</p>
 
 <h2>
 <a id="loading-vcf-files-with-annotation" class="anchor" href="#loading-vcf-files-with-annotation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Loading VCF files with annotation</h2>
@@ -191,42 +188,46 @@ get.sum.data(<span class="pl-smi">GENOME.class</span>)
 <div class="highlight highlight-source-r"><pre><span class="pl-smi">GENOME2.class</span> <span class="pl-k">&lt;-</span> readData(<span class="pl-s"><span class="pl-pds">"</span>great_tit/vcf2<span class="pl-pds">"</span></span>,<span class="pl-v">format</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>VCF<span class="pl-pds">"</span></span>, <span class="pl-v">gffpath</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>great_tit/gff<span class="pl-pds">"</span></span>) 
 get.sum.data(<span class="pl-smi">GENOME2.class</span>)
 <span class="pl-smi">GENOME2.class</span><span class="pl-k">@</span><span class="pl-smi">region.data</span> 
-<span class="pl-smi">GENOME2.class</span> <span class="pl-k">&lt;-</span> set.synnonsyn(<span class="pl-smi">GENOME2.class</span>, <span class="pl-v">ref.chr</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>great~t~it/fasta/LGE22.fasta<span class="pl-pds">"</span></span>)
+<span class="pl-smi">GENOME2.class</span> <span class="pl-k">&lt;-</span> set.synnonsyn(<span class="pl-smi">GENOME2.class</span>, <span class="pl-v">ref.chr</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>great_tit/fasta/LGE22.fasta<span class="pl-pds">"</span></span>)
 <span class="pl-smi">GENOME2.class</span><span class="pl-k">@</span><span class="pl-smi">region.data</span><span class="pl-k">@</span><span class="pl-smi">synonymous</span>
 <span class="pl-smi">GENOME2.class</span><span class="pl-k">@</span><span class="pl-smi">region.data</span><span class="pl-k">@</span><span class="pl-smi">CodingSNPS</span> 
 <span class="pl-smi">GENOME2.class.syn</span> <span class="pl-k">&lt;-</span> neutrality.stats(<span class="pl-smi">GENOME2.class</span>,<span class="pl-v">subsites</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>syn<span class="pl-pds">"</span></span>)
 <span class="pl-smi">GENOME2.class.syn</span><span class="pl-k">@</span><span class="pl-smi">Tajima.D</span> 
 <span class="pl-smi">GENOME2.class.syn</span><span class="pl-k">@</span><span class="pl-smi">theta_Watterson</span></pre></div>
 
-<ol>
-<li>What is theta Watterson and Tajima’s D of chromosome LGE22 for synonymous and nonsynonymous sites?</li>
-</ol>
+<p>13.What is theta Watterson and Tajima’s D of chromosome LGE22 for synonymous and nonsynonymous sites?</p>
 
 <h1>
 <a id="analysing-radseq-data-using-vcf-" class="anchor" href="#analysing-radseq-data-using-vcf-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analysing RADseq data using VCF </h1>
 
-<div class="highlight highlight-source-r"><pre>\<span class="pl-c"># SPLIT VCF FILE</span>
+<div class="highlight highlight-source-r"><pre><span class="pl-c"># SPLIT VCF FILE</span>
 VCF_split_into_scaffolds(<span class="pl-s"><span class="pl-pds">"</span>rad/variants.vcf<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>rad_split_vcf<span class="pl-pds">"</span></span>) 
 <span class="pl-c"># READ IN DATA, smaller subset</span>
 <span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span> readData(<span class="pl-s"><span class="pl-pds">"</span>rad_split_vcf_small<span class="pl-pds">"</span></span>,<span class="pl-v">format</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>VCF<span class="pl-pds">"</span></span>) 
-<span class="pl-smi">pop1</span><span class="pl-k">&lt;-</span>as.character(read.table(<span class="pl-s"><span class="pl-pds">"</span>rad/ind~s~pecies1.txt<span class="pl-pds">"</span></span>)[[<span class="pl-c1">1</span>]]) 
-<span class="pl-smi">pop2</span><span class="pl-k">&lt;-</span>as.character(read.table(<span class="pl-s"><span class="pl-pds">"</span>rad/ind~s~pecies2.txt<span class="pl-pds">"</span></span>)[[<span class="pl-c1">1</span>]]) 
+<span class="pl-smi">pop1</span><span class="pl-k">&lt;-</span>as.character(read.table(<span class="pl-s"><span class="pl-pds">"</span>rad/ind_species1.txt<span class="pl-pds">"</span></span>)[[<span class="pl-c1">1</span>]]) 
+<span class="pl-smi">pop2</span><span class="pl-k">&lt;-</span>as.character(read.table(<span class="pl-s"><span class="pl-pds">"</span>rad/ind_species2.txt<span class="pl-pds">"</span></span>)[[<span class="pl-c1">1</span>]]) 
 <span class="pl-smi">GENOME.class</span><span class="pl-k">&lt;-</span> set.populations(<span class="pl-smi">GENOME.class</span>,<span class="pl-k">list</span>(<span class="pl-smi">pop1</span>,<span class="pl-smi">pop2</span>),<span class="pl-v">diploid</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>) 
-\<span class="pl-c"># CHECK</span>
+<span class="pl-c"># CHECK</span>
 <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">populations</span></pre></div>
 
 <h2>
 <a id="obtaining-statistics-from-multiple-vcfs-derived-from-radseq" class="anchor" href="#obtaining-statistics-from-multiple-vcfs-derived-from-radseq" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obtaining statistics from multiple VCFs derived from RADseq</h2>
 
-<div class="highlight highlight-source-r"><pre>\<span class="pl-c"># NEUTRALITY STATISTICS GENOME.class \&lt;- neutrality.stats(GENOME.class,</span>
-<span class="pl-v">FAST</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>) get.neutrality(<span class="pl-smi">GENOME.class</span>)[[<span class="pl-c1">1</span>]] <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">Tajima.D</span> \<span class="pl-c">#</span>
-<span class="pl-smi">FST</span> <span class="pl-smi">GENOME.class</span> \<span class="pl-k">&lt;-</span> <span class="pl-c1">F</span><span class="pl-k">~</span><span class="pl-smi">S</span><span class="pl-k">~</span><span class="pl-c1">T</span>.stats(<span class="pl-smi">GENOME.class</span>)
-<span class="pl-smi">get.F</span><span class="pl-k">~</span><span class="pl-smi">S</span><span class="pl-k">~</span><span class="pl-c1">T</span>(<span class="pl-smi">GENOME.class</span>)[[<span class="pl-c1">1</span>]] <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">nucleotide.F</span><span class="pl-k">~</span><span class="pl-smi">S</span><span class="pl-k">~</span><span class="pl-c1">T</span> \<span class="pl-c"># DIVERSITY</span>
-<span class="pl-smi">GENOME.class</span> \<span class="pl-k">&lt;-</span> diversity.stats(<span class="pl-smi">GENOME.class</span>)
-get.diversity(<span class="pl-smi">GENOME.class</span>) <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">nuc.diversity.within</span> \<span class="pl-c"># SFS</span>
-<span class="pl-smi">GENOME.class</span> \<span class="pl-k">&lt;-</span>
-detail.stats(<span class="pl-smi">GENOME.class</span>,<span class="pl-v">site.spectrum</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>,<span class="pl-v">site.FST</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>) <span class="pl-smi">results</span> \<span class="pl-k">&lt;-</span>
-get.detail(<span class="pl-smi">GENOME.class</span>) <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">region.stats</span><span class="pl-k">@</span><span class="pl-smi">minor.allele.freqs</span></pre></div>
+<div class="highlight highlight-source-r"><pre><span class="pl-c"># NEUTRALITY STATISTICS </span>
+<span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span> neutrality.stats(<span class="pl-smi">GENOME.class</span>, <span class="pl-v">FAST</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>) 
+get.neutrality(<span class="pl-smi">GENOME.class</span>)[[<span class="pl-c1">1</span>]] <span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">Tajima.D</span> 
+<span class="pl-c"># FST </span>
+<span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span> F_ST.stats(<span class="pl-smi">GENOME.class</span>)
+get.F_ST(<span class="pl-smi">GENOME.class</span>)[[<span class="pl-c1">1</span>]] 
+<span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">nucleotide.F_ST</span> 
+<span class="pl-c"># DIVERSITY</span>
+<span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span> diversity.stats(<span class="pl-smi">GENOME.class</span>)
+get.diversity(<span class="pl-smi">GENOME.class</span>) 
+<span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">nuc.diversity.within</span> 
+<span class="pl-c"># SFS</span>
+<span class="pl-smi">GENOME.class</span> <span class="pl-k">&lt;-</span>detail.stats(<span class="pl-smi">GENOME.class</span>,<span class="pl-v">site.spectrum</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>,<span class="pl-v">site.FST</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>) 
+<span class="pl-smi">results</span> <span class="pl-k">&lt;-</span> get.detail(<span class="pl-smi">GENOME.class</span>) 
+<span class="pl-smi">GENOME.class</span><span class="pl-k">@</span><span class="pl-smi">region.stats</span><span class="pl-k">@</span><span class="pl-smi">minor.allele.freqs</span></pre></div>
 
 <p>14.Plot a site-frequency-spectrum for each population.</p>
 
@@ -240,7 +241,7 @@ get.detail(<span class="pl-smi">GENOME.class</span>) <span class="pl-smi">GENOME
 <span class="pl-smi">sfs</span> <span class="pl-k">&lt;-</span> <span class="pl-k">data.frame</span>(<span class="pl-smi">freq.table</span>)
 
 library(<span class="pl-smi">ggplot2</span>) 
-ggplot(<span class="pl-smi">sfs</span>, aes(<span class="pl-v">x</span><span class="pl-k">=</span><span class="pl-smi">allele</span><span class="pl-k">~</span><span class="pl-c1">F</span><span class="pl-k">~</span><span class="pl-smi">reqs</span>, <span class="pl-v">y</span><span class="pl-k">=</span><span class="pl-smi">Freq</span>)) <span class="pl-k">+</span> <span class="pl-smi">geom</span><span class="pl-k">~</span><span class="pl-smi">b</span><span class="pl-k">~</span>ar(<span class="pl-v">stat</span> <span class="pl-k">=</span> ’<span class="pl-smi">identity</span>’)</pre></div>
+ggplot(<span class="pl-smi">sfs</span>, aes(<span class="pl-v">x</span><span class="pl-k">=</span><span class="pl-smi">allele_Freqs</span>, <span class="pl-v">y</span><span class="pl-k">=</span><span class="pl-smi">Freq</span>)) <span class="pl-k">+</span> geom_bar(<span class="pl-v">stat</span> <span class="pl-k">=</span> ’<span class="pl-smi">identity</span>’)</pre></div>
 
 <h1>
 <a id="additional-aspects" class="anchor" href="#additional-aspects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Additional aspects</h1>
