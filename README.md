@@ -8,7 +8,7 @@ PDFs:
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome.pdf>
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/Whole_genome_analyses_using_VCF_files.pdf>
 
-Work on iceberg, copying necessary files
+To work on iceberg, copy necessary files from fastdata
 ```
 mkdir PopGenome
 cd PopGenome
