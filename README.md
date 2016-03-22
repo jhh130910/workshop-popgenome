@@ -141,9 +141,10 @@ get.neutrality(GENOME.class)[[1]]
 get.neutrality(GENOME.class)[[2]] 
 # Set an outgroup 
 GENOME.class <-set.outgroup(GENOME.class,c("Alyrata"))
-GENOME.class@region.data@outgroup GENOME.class <- neutrality.stats(GENOME.class,detail=TRUE)
+GENOME.class@region.data@outgroup 
+GENOME.class <- neutrality.stats(GENOME.class,detail=TRUE)
 get.neutrality(GENOME.class)[[1]] 
-get.neutrality(GENOME.class)[[2]
+get.neutrality(GENOME.class)[[2]]
 ```
 
 9.Name implemented statistics that require an outgroup, e.g. that are
