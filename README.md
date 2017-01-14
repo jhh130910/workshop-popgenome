@@ -3,8 +3,8 @@ Resources and Preparation
 
 Resources: 
 - Online: <http://tonig-evo.github.io/workshop-popgenome>
-- Data files: [PopGenome_data.zip](PopGenome_data.zip)
-- Solutions: [solutions.md](solutions.md)
+- Data files: [PopGenome_data.zip](https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome_data.zip)
+- Solutions: [solutions.md](https://github.com/tonig-evo/workshop-popgenome/blob/master/solutions.md)
 
 PDFs:
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/An_introduction_to_the_PopGenome_package.pdf>
