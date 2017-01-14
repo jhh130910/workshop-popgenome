@@ -47,10 +47,12 @@ To get an overview about the file contents, inspect files with a text
 Editor (e.g. Notepad+) or via the command line (e.g. more) before
 starting to work on them.
 
-Load library into R
+Start R and load PopGenome library
 ===================
 
 ```R
+# Start R
+R
 # Loading module 
 library(PopGenome)
 ```
