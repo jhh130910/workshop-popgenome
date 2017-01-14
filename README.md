@@ -170,6 +170,7 @@ with **readData** or a single VCF file with **readVCF**. To read a VCF
 file using *readVCF* it needs to be compressed with *bgzip* and indexed
 with *tabix*. The tabix files need to be placed in the same folder as
 the vcf file.
+
 ```R
 # What parameters need to be defined 
 GENOME.class <-readVCF("great_tit/vcf/LGE22.vcf.gz", 6000,"chrLGE22_Parus_Major_build_1.0.2",1,773534)
@@ -184,6 +185,7 @@ GENOME.class@region.data
 
 Loading VCF files with annotation
 ---------------------------------
+
 ```R
 GENOME2.class <- readData("great_tit/vcf2",format="VCF", gffpath="great_tit/gff") 
 get.sum.data(GENOME2.class)
@@ -213,6 +215,7 @@ GENOME.class@populations
 ```
 Obtaining statistics from multiple VCFs derived from RADseq
 -----------------------------------------------------------
+
 ```R
 # NEUTRALITY STATISTICS 
 GENOME.class <- neutrality.stats(GENOME.class, FAST=TRUE) 
