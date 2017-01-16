@@ -101,7 +101,7 @@ GENOME.class@Tajima.D
 
 4.What module is necessary to be executed in order to obtain Wall.B?
 
-5.How could one obtain a per site estimate of Pi?
+5.How could one obtain a per site estimate of Pi? (look carefully at solutions to question 1)
 
 Obtaining statistics for regions
 --------------------------------
