@@ -52,6 +52,8 @@ Start R and load PopGenome library
 ===================
 
 ```R
+# if you are on the login node run qrsh
+qrsh
 # Start R
 R
 # Loading module 
