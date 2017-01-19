@@ -224,7 +224,8 @@ Obtaining statistics from multiple VCFs derived from RADseq
 ```R
 # NEUTRALITY STATISTICS 
 GENOME.class <- neutrality.stats(GENOME.class, FAST=TRUE) 
-get.neutrality(GENOME.class)[[1]] GENOME.class@Tajima.D 
+get.neutrality(GENOME.class)[[1]] 
+GENOME.class@Tajima.D 
 # FST 
 GENOME.class <- F_ST.stats(GENOME.class)
 get.F_ST(GENOME.class)[[1]] 
