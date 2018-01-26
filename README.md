@@ -18,7 +18,7 @@ To work on iceberg, copy necessary files from fastdata
 ```
 mkdir PopGenome
 cd PopGenome
-cp /usr/local/extras/Genomics/workshops/March2016/PopGenome/PopGenome_data.zip ./
+cp /usr/local/extras/Genomics/workshops/January2018/PopGenome_data.zip ./
 unzip PopGenome_data.zip
 rm PopGenome_data.zip
 ```
