@@ -9,7 +9,7 @@ Resources:
 
 PDFs:
 
-- <https://github.com/tonig-evo/workshop-popgenome/blob/master/An_introduction_to_the_PopGenome_package.pdf>
+- [An_introduction_to_the_PopGenome_package.pdf](An_introduction_to_the_PopGenome_package.pdf)
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome.pdf>
 - <https://github.com/tonig-evo/workshop-popgenome/blob/master/Whole_genome_analyses_using_VCF_files.pdf>
 
