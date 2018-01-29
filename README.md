@@ -34,9 +34,7 @@ correctly and you have all the packages installed, e.g.
 install.packages("PopGenome"). The following files are necessary to
 conduct this practical session:
 
--   fasta_file.txt, a fasta file for one locus from different
-    *Arabidopsis thaliana* individuals (accessions) and the outgroup
-    sequence from *Arabidopsis lyrata* in the folder **fasta**
+
 
 -   LGE22.gff, LGE22.vcf, LGE22.fa in subfolders in the folder
     **great_tit**
@@ -45,7 +43,7 @@ conduct this practical session:
     in the folder **rad**
 
 To get an overview about the file contents, inspect files with a text
-Editor (e.g. Notepad+) or via the command line (e.g. more) before
+Editor (e.g. Notepad+) or via the command line (e.g. more, nano) before
 starting to work on them.
 
 Start R and load PopGenome library
@@ -66,6 +64,13 @@ library(PopGenome)
 
 Fasta Files
 ===========
+
+The file fasta_file.txt is a fasta file for one locus/gene from different *Arabidopsis thaliana* individuals (accessions) and the outgroup sequence from *Arabidopsis lyrata* in the folder **fasta**.
+
+```
+nano fasta/fasta_file.txt
+```
+
 
 Reading Fasta Files
 -------------------
