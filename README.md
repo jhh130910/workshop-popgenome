@@ -10,15 +10,15 @@ Resources:
 PDFs:
 
 - [An_introduction_to_the_PopGenome_package.pdf](An_introduction_to_the_PopGenome_package.pdf)
-- <https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome.pdf>
-- <https://github.com/tonig-evo/workshop-popgenome/blob/master/Whole_genome_analyses_using_VCF_files.pdf>
+- [PopGenome.pdf](PopGenome.pdf)
+- [Whole_genome_analyses_using_VCF_files.pdf](Whole_genome_analyses_using_VCF_files.pdf)
 
 To work on iceberg, copy necessary files from fastdata
 
 ```
 mkdir PopGenome
 cd PopGenome
-cp /usr/local/extras/Genomics/workshops/January2018/PopGenome_data.zip ./
+cp /usr/local/extras/Genomics/workshops/January2018/PopGenome/PopGenome_data.zip ./
 unzip PopGenome_data.zip
 rm PopGenome_data.zip
 ```
