@@ -31,13 +31,11 @@ PopGenome is an R package
 analyses of population genomic data. For this
 tutorial, please make sure that your R working directory is set
 correctly and you have all the packages installed, e.g.
-install.packages("PopGenome"). The following files are necessary to
-conduct this practical session:
+install.packages("PopGenome").
 
 
 
--   LGE22.gff, LGE22.vcf, LGE22.fa in subfolders in the folder
-    **great_tit**
+
 
 -   variants.vcf, ind_species1.txt, ind_species2.txt, rad_assembly.fa
     in the folder **rad**
@@ -176,6 +174,15 @@ test?
 
 Analysing VCF files for whole genome data
 =========================================
+
+The files LGE22.gff, LGE22.vcf, LGE22.fa in subfolders in the folder **great_tit** contain information about a part of chromosome 22 of the passerine bird *Parus major* (great tit). The fasta file contains the sequence information, the vcf file varianat information of great tit individuals and the gff file inforation about annotated regions in this chromosome.
+
+```
+more great_tit/LGE22.fa
+more great_tit/LGE22.gff
+more great_tit/LGE22.vcf
+```
+
 
 Loading VCF files
 -----------------
