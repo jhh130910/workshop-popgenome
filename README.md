@@ -222,11 +222,13 @@ In the folder **rad** the file variants.vcf includes RAD sequenced data (<https:
 more rad/variants.vcf
 more rad/ind_species1.txt
 more rad/ind_species2.txt
-more rad_assembly.fa  
+more rad/rad_assembly.fa  
 ```
 
 File preparations
 -----------------
+
+First, variants will be split into scaffolds (for computational reasons). Calculations will then be conducted on a smaller subset.
 
 ```R
 # SPLIT VCF FILE
