@@ -51,7 +51,7 @@ starting to work on them.
 Start R and load PopGenome library
 ===================
 
-```
+```R
 # Possible preparations (if not done already)
 module load  apps/R/3.3.1
 ```
