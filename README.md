@@ -84,7 +84,7 @@ get.individuals(GENOME.class)
 Obtaining summary statistics from alignments
 --------------------------------------------
 
-**Note:** Since calculation of certain population genetic parameter can
+**Note:** Since calculation of certain population genetic parameters can
 be computational intense, they have to be executed separately
 beforehand. For this modules have to be run. Note that module **Fst**
 has to be executed with **F_st**. The statistic Tajima’s D is part of
