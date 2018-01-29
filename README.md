@@ -31,16 +31,7 @@ PopGenome is an R package
 analyses of population genomic data. For this
 tutorial, please make sure that your R working directory is set
 correctly and you have all the packages installed, e.g.
-install.packages("PopGenome").
-
-
-
-
-
--   variants.vcf, ind_species1.txt, ind_species2.txt, rad_assembly.fa
-    in the folder **rad**
-
-To get an overview about the file contents, inspect files with a text
+install.packages("PopGenome"). To get an overview about the file contents, inspect files with a text
 Editor (e.g. Notepad+) or via the command line (e.g. more, nano) before
 starting to work on them.
 
@@ -223,6 +214,19 @@ GENOME2.class.syn@theta_Watterson
 
 Analysing RADseq data using VCF 
 ================================
+
+In the folder **rad** the file variants.vcf includes RAD sequenced data (<https://en.wikipedia.org/wiki/Restriction_site_associated_DNA_markers>) of two species. Information about the species can be found in the files ind_species1.txt, ind_species2.txt. The assembled data can be found in rad_assembly.fa  
+
+```
+# view file content
+more rad/variants.vcf
+more rad/ind_species1.txt
+more rad/ind_species2.txt
+more rad_assembly.fa  
+```
+
+File preparations
+-----------------
 
 ```R
 # SPLIT VCF FILE
