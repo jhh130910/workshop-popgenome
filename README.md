@@ -65,7 +65,7 @@ library(PopGenome)
 Fasta Files
 ===========
 
-The file fasta_file.txt is a fasta file for one locus/gene from different *Arabidopsis thaliana* individuals (accessions) and the outgroup sequence from *Arabidopsis lyrata* in the folder **fasta**.
+The file **fasta_file.txt** contains the coding sequence for one locus/gene from different *Arabidopsis thaliana* individuals (accessions) and the outgroup sequence from *Arabidopsis lyrata* in the folder **fasta**. Fasta is a common file format to store sequence information, for more information: <https://en.wikipedia.org/wiki/FASTA_format>
 
 ```
 nano fasta/fasta_file.txt
