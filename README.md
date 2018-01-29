@@ -52,15 +52,14 @@ Start R and load PopGenome library
 ===================
 
 ```R
-# Possible preparations (if not done already)
-module load  apps/R/3.3.1
-```
-
-```R
 # if you are on the login node run qrsh
 qrsh
+# Load R version
+module load  apps/R/3.3.1
 # Start R
 R
+# Install library
+install.packages("PopGenome")
 # Loading module 
 library(PopGenome)
 ```
