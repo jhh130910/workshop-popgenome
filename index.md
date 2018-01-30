@@ -1,21 +1,24 @@
 Resources and Preparation
 ============
 
-Resources: 
+Resources:
+
 - Online: <http://tonig-evo.github.io/workshop-popgenome>
-- Data files: [PopGenome_data.zip](PopGenome_data.zip)
-- Solutions: [solutions.md](solutions.md)
+- Data files: [PopGenome_data.zip](https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome_data.zip)
+- Solutions: added later
 
 PDFs:
-- <https://github.com/tonig-evo/workshop-popgenome/blob/master/An_introduction_to_the_PopGenome_package.pdf>
-- <https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome.pdf>
-- <https://github.com/tonig-evo/workshop-popgenome/blob/master/Whole_genome_analyses_using_VCF_files.pdf>
+
+- [An_introduction_to_the_PopGenome_package.pdf](An_introduction_to_the_PopGenome_package.pdf)
+- [PopGenome.pdf](PopGenome.pdf)
+- [Whole_genome_analyses_using_VCF_files.pdf](Whole_genome_analyses_using_VCF_files.pdf)
 
 To work on iceberg, copy necessary files from fastdata
+
 ```
 mkdir PopGenome
 cd PopGenome
-cp /usr/local/extras/Genomics/workshops/March2016/PopGenome/PopGenome_data.zip ./
+cp /usr/local/extras/Genomics/workshops/January2018/PopGenome/PopGenome_data.zip ./
 unzip PopGenome_data.zip
 rm PopGenome_data.zip
 ```
@@ -28,33 +31,36 @@ PopGenome is an R package
 analyses of population genomic data. For this
 tutorial, please make sure that your R working directory is set
 correctly and you have all the packages installed, e.g.
-install.packages("PopGenome"). The following files are necessary to
-conduct this practical session:
-
--   fasta_file.txt, a fasta file for one locus from different
-    *Arabidopsis thaliana* individuals (accessions) and the outgroup
-    sequence from *Arabidopsis lyrata* in the folder **fasta**
-
--   LGE22.gff, LGE22.vcf, LGE22.fa in subfolders in the folder
-    **great_tit**
-
--   variants.vcf, ind_species1.txt, ind_species2.txt, rad_assembly.fa
-    in the folder **rad**
-
-To get an overview about the file contents, inspect files with a text
-Editor (e.g. Notepad+) or via the command line (e.g. more) before
+install.packages("PopGenome"). To get an overview about the file contents, inspect files with a text
+Editor (e.g. Notepad+) or via the command line (e.g. more, nano) before
 starting to work on them.
 
-Load library into R
+Start R and load PopGenome library
 ===================
 
 ```R
+# if you are on the login node run qrsh
+qrsh
+# Load R version
+module load  apps/R/3.3.1
+# Start R
+R
+# Install library
+install.packages("PopGenome")
 # Loading module 
 library(PopGenome)
 ```
 
 Fasta Files
 ===========
+
+The file **fasta_file.txt** contains the coding sequence for one locus/gene from different *Arabidopsis thaliana* individuals (accessions) and the outgroup sequence from *Arabidopsis lyrata* in the folder **fasta**. Fasta is a common file format to store sequence information, for more information: <https://en.wikipedia.org/wiki/FASTA_format>
+
+```
+# view file content
+more fasta/fasta_file.txt
+```
+
 
 Reading Fasta Files
 -------------------
@@ -73,7 +79,7 @@ get.individuals(GENOME.class)
 Obtaining summary statistics from alignments
 --------------------------------------------
 
-**Note:** Since calculation of certain population genetic parameter can
+**Note:** Since calculation of certain population genetic parameters can
 be computational intense, they have to be executed separately
 beforehand. For this modules have to be run. Note that module **Fst**
 has to be executed with **F_st**. The statistic Tajima’s D is part of
@@ -94,7 +100,7 @@ GENOME.class@Tajima.D
 
 4.What module is necessary to be executed in order to obtain Wall.B?
 
-5.How could one obtain a per site estimate of Pi?
+5.How could one obtain a per site estimate of Pi? (look carefully at solutions to question 1)
 
 Obtaining statistics for regions
 --------------------------------
@@ -160,6 +166,15 @@ test?
 Analysing VCF files for whole genome data
 =========================================
 
+The files LGE22.gff, LGE22.vcf, LGE22.fa in subfolders in the folder **great_tit** contain information about a part of chromosome 22 of the passerine bird *Parus major* (great tit). The fasta file contains the sequence information, the vcf file varianat information of great tit individuals and the gff file inforation about annotated regions in this chromosome.
+
+```
+more great_tit/LGE22.fa
+more great_tit/LGE22.gff
+more great_tit/LGE22.vcf
+```
+
+
 Loading VCF files
 -----------------
 
@@ -168,6 +183,7 @@ with **readData** or a single VCF file with **readVCF**. To read a VCF
 file using *readVCF* it needs to be compressed with *bgzip* and indexed
 with *tabix*. The tabix files need to be placed in the same folder as
 the vcf file.
+
 ```R
 # What parameters need to be defined 
 GENOME.class <-readVCF("great_tit/vcf/LGE22.vcf.gz", 6000,"chrLGE22_Parus_Major_build_1.0.2",1,773534)
@@ -182,6 +198,7 @@ GENOME.class@region.data
 
 Loading VCF files with annotation
 ---------------------------------
+
 ```R
 GENOME2.class <- readData("great_tit/vcf2",format="VCF", gffpath="great_tit/gff") 
 get.sum.data(GENOME2.class)
@@ -198,6 +215,21 @@ GENOME2.class.syn@theta_Watterson
 Analysing RADseq data using VCF 
 ================================
 
+In the folder **rad** the file variants.vcf includes RAD sequenced data (<https://en.wikipedia.org/wiki/Restriction_site_associated_DNA_markers>) of two species. Information about the species can be found in the files ind_species1.txt, ind_species2.txt. The assembled data can be found in rad_assembly.fa  
+
+```
+# view file content
+more rad/variants.vcf
+more rad/ind_species1.txt
+more rad/ind_species2.txt
+more rad/rad_assembly.fa  
+```
+
+File preparations
+-----------------
+
+First, variants will be split into scaffolds (for computational reasons). Calculations will then be conducted on a smaller subset.
+
 ```R
 # SPLIT VCF FILE
 VCF_split_into_scaffolds("rad/variants.vcf","rad_split_vcf") 
@@ -211,10 +243,12 @@ GENOME.class@populations
 ```
 Obtaining statistics from multiple VCFs derived from RADseq
 -----------------------------------------------------------
+
 ```R
 # NEUTRALITY STATISTICS 
 GENOME.class <- neutrality.stats(GENOME.class, FAST=TRUE) 
-get.neutrality(GENOME.class)[[1]] GENOME.class@Tajima.D 
+get.neutrality(GENOME.class)[[1]] 
+GENOME.class@Tajima.D 
 # FST 
 GENOME.class <- F_ST.stats(GENOME.class)
 get.F_ST(GENOME.class)[[1]] 
