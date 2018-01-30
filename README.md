@@ -5,7 +5,7 @@ Resources:
 
 - Online: <http://tonig-evo.github.io/workshop-popgenome>
 - Data files: [PopGenome_data.zip](https://github.com/tonig-evo/workshop-popgenome/blob/master/PopGenome_data.zip)
-- Solutions: [solutions.md](https://github.com/tonig-evo/workshop-popgenome/blob/master/solutions.md)
+- Solutions: added later
 
 PDFs:
 
