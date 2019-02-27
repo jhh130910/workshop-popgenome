@@ -226,6 +226,7 @@ In the folder **rad** the file variants.vcf includes RAD sequenced data (<https:
 more rad/variants.vcf
 more rad/ind_species1.txt
 more rad/ind_species2.txt
+# not included in the zip because of file size
 more rad/rad_assembly.fa  
 ```
 
