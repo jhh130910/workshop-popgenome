@@ -173,9 +173,9 @@ Analysing VCF files for whole genome data
 The files LGE22.gff, LGE22.vcf, LGE22.fa in subfolders in the folder **great_tit** contain information about a part of chromosome 22 of the passerine bird *Parus major* (great tit). The fasta file contains the sequence information, the vcf file varianat information of great tit individuals and the gff file inforation about annotated regions in this chromosome.
 
 ```
-more great_tit/LGE22.fa
-more great_tit/LGE22.gff
-more great_tit/LGE22.vcf
+more great_tit/fasta/LGE22.fa
+more great_tit/gff/LGE22.gff
+more great_tit/vcf2/LGE22.vcf
 ```
 
 
